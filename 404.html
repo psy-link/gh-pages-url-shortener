@@ -49,6 +49,8 @@
             url.setAttribute("href", title);
             
             console.log(title);
+            
+            setTimeout(console.log("sleep 10000"), 10000)
 
             // Invalid URLs includes invalid issue numbers, issue titles that are not URLs, and recursive destination URLs
             var isInvalidUrl =
