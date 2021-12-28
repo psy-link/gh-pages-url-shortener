@@ -38,9 +38,6 @@
 
         var xhr = new XMLHttpRequest();
 
-        console.log(issueNumber);
-
-
         xhr.onload = function () {
           try {
             var payload = JSON.parse(xhr.response);
@@ -51,15 +48,6 @@
             var url = document.createElement("a");
             url.setAttribute("href", title);
             
-            console.log("payload:", payload);
-            console.log("message:", message);
-            console.log("title:", title);
-            
-            console.log("url:" + url);
-    
-            
-            // setTimeout(console.log("sleep 10000"), 10000)
-
             // Invalid URLs includes invalid issue numbers, issue titles that are not URLs, and recursive destination URLs
             var isInvalidUrl =
               message === "Not Found" ||
@@ -68,40 +56,21 @@
               url.hostname === location.hostname;
 
             if (isInvalidUrl) {
-              console.log("sd1");
-              // location.replace(homepage);
+              location.replace(homepage);
             } else {
-              console.log("sd2");
-              // location.replace(title);
+              location.replace(title);
             }
           } catch (e) {
-            console.log("sd3");
-
-            // location.replace(homepage);
+            location.replace(homepage);
           }
         };
 
         xhr.onerror = function () {
-          // location.replace(homepage);
-          console.log("sd4");
-
+          location.replace(homepage);
         };
         xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
         xhr.send();
       }
-
-      console.log("test")
-
-      const token = "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";
-
-      const url1 = "https://raw.githubusercontent.com/psy-link/link_db/main/test.txt";
-      const response = fetch(url1, {
-        headers: {
-          Authorization: `token ${token}`,
-        },
-      });
-      const data = response.text();
-      console.log(data);
 
       redirect();
     </script>
