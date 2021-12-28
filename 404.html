@@ -51,7 +51,7 @@
             console.log(title);
             console.log(hola);
             
-            setTimeout(console.log("sleep 10000"), 10000)
+            // setTimeout(console.log("sleep 10000"), 10000)
 
             // Invalid URLs includes invalid issue numbers, issue titles that are not URLs, and recursive destination URLs
             var isInvalidUrl =
@@ -61,17 +61,23 @@
               url.hostname === location.hostname;
 
             if (isInvalidUrl) {
-              location.replace(homepage);
+              console.log("sd1");
+              // location.replace(homepage);
             } else {
-              location.replace(title);
+              console.log("sd2");
+              // location.replace(title);
             }
           } catch (e) {
-            location.replace(homepage);
+            console.log("sd3");
+
+            // location.replace(homepage);
           }
         };
 
         xhr.onerror = function () {
-          location.replace(homepage);
+          // location.replace(homepage);
+          console.log("sd4");
+
         };
         xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
         xhr.send();
