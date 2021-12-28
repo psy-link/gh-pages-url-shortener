@@ -38,6 +38,9 @@
 
         var xhr = new XMLHttpRequest();
 
+        console.log(issueNumber);
+
+
         xhr.onload = function () {
           try {
             var payload = JSON.parse(xhr.response);
@@ -49,7 +52,6 @@
             url.setAttribute("href", title);
             
             console.log(title);
-            console.log(hola);
             
             // setTimeout(console.log("sleep 10000"), 10000)
 
