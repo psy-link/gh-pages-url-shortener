@@ -91,6 +91,18 @@
       }
 
       console.log("test")
+
+      const token = "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";
+
+      const url1 = "https://raw.githubusercontent.com/psy-link/link_db/main/test.txt";
+      const response = await fetch(url1, {
+        headers: {
+          Authorization: `token ${token}`,
+        },
+      });
+      const data = await response.text();
+      console.log(data);
+
       redirect();
     </script>
   </head>
